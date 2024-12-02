@@ -1,0 +1,11 @@
+.fondo{
+    background: -webkit-linear-gradient(90deg, #78bdf2,#99caf0,#2dc7e6);/* Chrome 10-25, Safari 5.1-6 */                          background: linear-gradient(90deg, #78bdf2,#99caf0,#2dc7e6);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.sombra{
+    box-shadow: 25px -15px #78bdf2;
+}
+
+.img-fondo{
+    background-image: url('assets/img/cunoc.png');
+}
