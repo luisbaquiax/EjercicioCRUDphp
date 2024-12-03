@@ -29,6 +29,8 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="/assets/css/sidebars.css" rel="stylesheet">
+    <!-- my styles -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <!-- icons-->
     <link
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
@@ -111,16 +113,16 @@
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
+            <li>
+                <a href="#" class="nav-link text-white menu-item" aria-current="page" onclick="loadPage('student-tesis')">
                     <span class="material-symbols-outlined">
                     description
                     </span>
-                    Mis tesis
+                    Gestion de tesis
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
+                <a href="#" class="nav-link text-white menu-item">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"/>
                     </svg>
@@ -128,7 +130,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
+                <a href="#" class="nav-link text-white menu-item">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"/>
                     </svg>
@@ -144,20 +146,18 @@
                 <strong>mdo</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+
+                <li><a class="dropdown-item" href="/index.php">Salir</a></li>
             </ul>
         </div>
     </div>
 
     <div class="b-example-divider"></div>
-    <div class="container-fluid">
-
+    <div class="container-fluid" id="content">
     </div>
 </main>
+
+<script src="/assets/js/RenderPages.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

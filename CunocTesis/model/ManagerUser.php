@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__.'/Coneccion.php';
-class GestorStudent
+require_once __DIR__. '/Coneccion.php';
+require_once __DIR__. '/Persona.php';
+class ManagerUser
 {
     const INSERT = '
-    INSERT INTO estudiante (
-                carne,
+    INSERT INTO encargado (
                 dpi, 
                 nombre1,
                 nombre2, 
@@ -14,14 +14,14 @@ class GestorStudent
                 telefono, 
                 password, 
                 estado
-            ) VALUES (?,?,?,?,?,?,?,?,?,?)
+            ) VALUES (?,?,?,?,?,?,?,?,?)
     ';
 
     const UPDATE = '
     ';
     const DELETE = '';
-    const SEARCH = 'SELECT * FROM estudiante WHERE correo = ? AND password = ?';
-    const SEARCH_BY_CORREO = 'SELECT * FROM estudiante WHERE correo = ?';
+    const SEARCH = 'SELECT * FROM encargado WHERE correo = ? AND password = ?';
+    const SEARCH_BY_EMAIL = 'SELECT * FROM encargado WHERE correo = ?';
     private $conn;
     private $coneccion;
     public function __construct()
@@ -34,7 +34,7 @@ class GestorStudent
     {
         $stm = $this->conn->prepare(self::INSERT);
         if($stm){
-            $carne = $persona->carne;
+            $dpi = $persona->dpi;
             $nombre1 = $persona->nombre1;
             $nombre2 = $persona->nombre2;
             $apellido1 = $persona->apellido1;
@@ -44,7 +44,7 @@ class GestorStudent
             $password = password_hash($persona->password, PASSWORD_DEFAULT);
             $estado = $persona->estado;
             $stm->bind_param('ssssssssi',
-                $carne, $nombre1, $nombre2, $apellido1, $apellido2, $telefono, $correo, $password, $estado);
+                $dpi, $nombre1, $nombre2, $apellido1, $apellido2, $telefono, $correo, $password, $estado);
 
             $success = $stm->execute();
             $stm->close();
@@ -72,7 +72,7 @@ class GestorStudent
                 return new Persona(
                     $row['id'],
                     $row['dpi'],
-                    $row['carne'],
+                    '',
                     $row['nombre1'],
                     $row['nombre2'],
                     $row['apellido1'],
@@ -95,7 +95,7 @@ class GestorStudent
      * @throws Exception
      */
     public function searchByCorreo($correo){
-        $stmt = $this->conn->prepare(self::SEARCH_BY_CORREO);
+        $stmt = $this->conn->prepare(self::SEARCH_BY_EMAIL);
         if($stmt){
             $stmt->bind_param("s", $correo);
             $stmt->execute();
@@ -104,7 +104,7 @@ class GestorStudent
                 return new Persona(
                     $row['id'],
                     $row['dpi'],
-                    $row['carne'],
+                    '',
                     $row['nombre1'],
                     $row['nombre2'],
                     $row['apellido1'],

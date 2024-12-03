@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../model/GestorStudent.php';
+require_once __DIR__ . '/../model/ManagerUser.php';
 require_once __DIR__ . '/../model/Persona.php';
 
-$gestor = new GestorStudent();
+$gestor = new ManagerUser();
 $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
